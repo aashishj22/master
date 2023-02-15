@@ -1,0 +1,66 @@
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../../assets/images/logo.jpg" width="60px" height="60px">
+            <a href="" class="header_logo">FoodiE</a>
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-three-dots-vertical header_toggle fas fa-bars" id="toggle-menu" viewBox="0 0 16 16">
+                    <path
+                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                </svg>
+            </i>
+
+        </label>
+        <ul>
+            <li><a class="active" routerLink="/user">Home</a></li>
+            <li><a routerLink="/login">LogOut</a></li>
+        </ul>
+    </nav>
+
+    <div class="content" style="min-height: 100vh;">
+        <div class="card" *ngFor="let s of items">
+            <div class="info">
+                <div id="name" class="name" style="font-size: 30px;">CUISINE NAME : {{s.cuisineName}}</div>
+                <div class="prof" style="font-size: 25px; color: blue;">{{s.cuisineDescription}}</div>
+                <div class="prof" style="margin-top: 45px; color: green;">Rs. {{s.price}}</div>
+                <div class="divider" style="margin-top: 45px;"></div>
+                <!-- <button id="view">View Restaurant</button> -->
+                <button class="view" (click)="removeFav(s.cuisineId)">Remove </button>
+            </div>
+            <img class="photo" [src]="'data:image/jpeg;base64,'+s.image">
+            
+        </div>
+    </div>
+
+    <ng-container *ngIf="items.length===0">
+        <div class="container">
+            <!-- <div class="card" style="height: 60vh;
+                                     margin: 25px;
+                                     padding: 25px;">
+                <h5 class="card-title">Favourites</h5>
+            </div> -->
+            <div class="center" style=" position: absolute;
+                                        top:50%;
+                                        left:50%;
+                                        transform: translate(-50%,-50%);
+                                        text-align:center;">
+                <img src="https://img.freepik.com/premium-vector/puzzled-confused-woman-character-cartoon-illustration-indifferent-female-isolated-white-background_97231-1082.jpg?w=2000"
+                    style="    color:inherit;
+                border:none;
+                border-radius: 12vh;
+                outline: none;
+                height: 120px;
+                width: 120px;" alt="empty Favourites">
+                <h4 style="color:aliceblue">Hmm, its all empty here...</h4>
+                <h6 style="color:aliceblue">Add your favourite food items and places</h6>
+                <button routerLink="/user" class="btn btn-primary" style="    margin-top: 5px;
+                margin-bottom: 5px;">Discover more</button>
+            </div>
+        </div>
+
+    </ng-container>
+</body>

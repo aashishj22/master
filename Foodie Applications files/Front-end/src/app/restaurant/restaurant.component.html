@@ -1,0 +1,48 @@
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="text-center">
+                        <h1 class="ep">RESTAURANT FORM</h1>
+                    </div>
+                    <form [formGroup]="restaurantForm">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label ep">RestaurantId</label>
+                            <input type="text" formControlName="restaurantId" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label ep">RestaurantName</label>
+                            <input type="text" formControlName="restaurantName" class="form-control"
+                                id="exampleInputPassword1" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label ep">RestaurantLocation</label>
+                            <input type="text" formControlName="restaurantLocation" class="form-control"
+                                id="exampleInputPassword1" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label ep">Upload Image</label>
+                            <input type="file" class="form-control" accept="image/*" (change)="onFileSelect($event)"
+                                style="height: 100%" id="exampleInputPassword1" />
+                        </div>
+
+                        <div class="mb-3">
+                            <img [src]="userFile1.url ?? '/assets/images/restaurant.jpg'"  width="100px" height="100px" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" (click)="addRestaurant(restaurantForm)" routerLink="/admin">
+                            Add Restaurant
+                        </button>
+
+                        <button class="btn btn-success" routerLink="/admin">
+                            Go Back
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

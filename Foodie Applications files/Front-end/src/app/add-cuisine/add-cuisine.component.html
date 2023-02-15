@@ -1,0 +1,49 @@
+
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="text-center">
+                        <h1 class="ep">CUISINE</h1>
+                    </div>
+                    <form>
+                        <form [formGroup]="cuisineForm">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label ep">CuisineId</label>
+                                <input type="text" formControlName="cuisineId" class="form-control"
+                                    id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label ep">CuisineName</label>
+                                <input type="text" formControlName="cuisineName" class="form-control"
+                                    id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label ep">CuisineDescription</label>
+                                <input type="text" formControlName="cuisineDescription" class="form-control"
+                                    id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label ep">Price</label>
+                                <input type="text" formControlName="price" class="form-control"
+                                    id="exampleInputPassword1">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label ep">Upload Image</label>
+                                <input type="file" class="form-control" accept="image/*" (change)="onFileSelect($event)"
+                                    style="height: 100%" id="exampleInputPassword1" />
+                            </div>
+    
+                            <div class="mb-3">
+                                <img [src]="userFile1.url ?? '/assets/images/restaurant.jpg'"  width="100px" height="100px" />
+                            </div>
+                            <button type="submit" class="btn btn-primary" (click)="addCuisine(cuisineForm)">Add Cuisine</button>
+                        </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
